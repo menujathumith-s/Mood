@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Mood App.TS</title>
+    <link rel="stylesheet" href="m.css">
+
+    <!-- EmailJS -->
+    <!-- EmailJS Library (REQUIRED) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+     emailjs.init("fusMET_7042QSezrj");
+    </script>
+    <audio id ="slideti" src="ti.mp3"></audio>
+    <audio id ="slideha" src="ha.mp3"></audio>
+    <audio id ="slidean" src="an.mp3"></audio>
+    <audio id ="slidesa" src="sa.mp3"></audio>
+
+    <style>/* Bottom center text */
+.bottom-text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    color: white;
+    font-size: 20px;
+    text-align: center;
+
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Fade in */
+.bottom-text.show {
+    opacity: 1;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active" id="slide1">
+    <h2>Enter Your Details</h2>
+    <input type="text" id="nameInput" placeholder="Name"><br>
+    <input type="email" id="emailInput" placeholder="Email"><br>
+    <input type="date" id="birthdayInput" >
+    <button onclick="nextSlide()">Next</button>
+</div>
+
+<!-- Slide 2 -->
+
+<div class="slide" id="slide2">
+
+    <h1 id="welcomeText"></h1>
+    <p id="ageText"></p>
+    <h3 id="fillText"></h3>
+
+    <div class="marquee-container">
+        <div class="track">
+            <div class="content">
+             ✨&nbsp;&nbsp;&nbsp; &nbsp;We&nbsp; can&nbsp; give&nbsp; you &nbsp;suggestions &nbsp;&nbsp;&nbsp; &nbsp;🎯 &nbsp;&nbsp;&nbsp; &nbsp;based&nbsp; on&nbsp; your&nbsp; mood  &nbsp;&nbsp;&nbsp;😉
+            </div>
+        </div>
+    </div>
+
+    <div class="form-line">
+        <div>
+            Gender:<br>
+            <input type="radio" name="gender" value="male"> Male♂️<br>
+            <input type="radio" name="gender" value="female"> Female♀️
+        </div>
+
+        <div>
+            Type:<br>
+            <input type="radio" name="type" value="student" onchange="toggleJob()"> Student<br>
+            <input type="radio" name="type" value="worker" onchange="toggleJob()"> Worker
+        </div>
+
+        <div class="job">
+            Occupation:<br>
+            <select id="job">
+                <option>Other</option>
+                <option>Engineer</option>
+                <option>Doctor</option>
+                <option>Businessman</option>
+                <option>Programmer</option>
+            </select>
+        </div>
+
+        <div class="job">
+            Mood:<br>
+            <select id="mood">
+                <option>Happy😃</option>
+                <option>Sad😥</option>
+                <option>Angry😡</option>
+                <option>Tired🤕</option>
+                <option>Frustration😔</option>
+                <option>Thinking🤔</option>
+                <option>Normal🙂</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <button onclick="showResult()">Submit</button>
+    <p>
+    <div class="bottom-video">
+        <video id="bv" muted loop playsinline>
+            <source src="m.mp4" type="video/mp4">
+        </video>
+       
+    </p>
+    </div>
+    
+</div>
+        
+<!-- Slide 3 -->
+<div class="slide" id="slide3">
+    <h1 id="resultTitle"></h1>
+    <p id="resultText"></p>
+
+    <div class="bottom-text" id="bottomText">
+        Welcome to my website
+    </div>
+
+<script>
+window.onload = function () {
+
+    const texts = [
+        "Welcome to Mo0d😉",
+        "Enjoy your day!",
+        "by mTs"
+    ];
+
+    let index = 0;
+    const textElement = document.getElementById("bottomText");
+
+    function changeText() {
+        textElement.classList.remove("show");
+
+        setTimeout(() => {
+            index = (index + 1) % texts.length;
+            textElement.textContent = texts[index];
+            textElement.classList.add("show");
+        }, 1000);
+    }
+
+    textElement.classList.add("show");
+    setInterval(changeText, 3000);
+};
+</script>
+</div>
+
+
+<script src="m.js"></script>
+
+</body>
+</html>

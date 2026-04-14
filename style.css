@@ -212,3 +212,28 @@ button:active {
     transform: scale(1.2);
 
 }
+
+/*default (desktop) */
+.container {
+    width:1200px;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+/*mobile*/
+@media (max-width:768px){
+
+    body{
+        margin:0;
+    }
+
+    .form-box {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    input, button{
+        width:100%;
+    }
+}

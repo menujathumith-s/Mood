@@ -238,6 +238,10 @@ function showResult() {
     let name = document.getElementById("nameInput").value.trim();
     let firstName = name.split(" ")[0];
     let Last = name.split(" ")[1];
+   
+    if (Last === undefined){
+      Last = "...";}
+
     firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1).toLowerCase();
     
     document.getElementById("resultTitle").innerText = "Hello "+ firstName +" "+ Last   ;

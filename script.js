@@ -102,7 +102,7 @@ function showResult() {
         sound.play();
         sound.volume = 0.5;} // 50%
         else{
-        suggestion = "Go outside ";
+        suggestion = "Listen to music and make your own dance";
         bg = "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee";
         let sound = document.getElementById("slideha");
         sound.currentTime = 0; // restart sound
@@ -118,7 +118,7 @@ function showResult() {
         sound.play();
         sound.volume = 0.5;} // 50%
         else {
-        suggestion = "Listed dance 🎵";
+        suggestion = "Get comfort from close friends or someone u trust";
         bg = "https://images.unsplash.com/photo-1492724441997-5dc865305da7";
         let sound = document.getElementById("slidesa");
         sound.currentTime = 0; // restart sound
@@ -133,7 +133,7 @@ function showResult() {
         sound.play();
         sound.volume = 0.5;} // 50%
         else{
-        suggestion = "Take deep breaths and relax 😌";
+        suggestion = "Get time to cool down and control yourself";
         bg = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e";
         let sound = document.getElementById("slidean");
         sound.currentTime = 0; // restart sound
@@ -142,51 +142,51 @@ function showResult() {
     } else if (mood === "Frustration😔") {
         if (gender==="male"){
         suggestion = "Forget past live at present with fixing your mistakes 😎";
-        bg = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e";
-        let sound = document.getElementById("slidean");
+        bg = "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bmF0dXJlfGVufDB8MHwwfHx8MA%3D%3D";
+        let sound = document.getElementById("slidefr");
         sound.currentTime = 0; // restart sound
         sound.play();
         sound.volume = 0.5;} // 50%
         else{
-        suggestion = "Forget past live at present with fixing your mistakes 😎";
-        bg = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e";
-        let sound = document.getElementById("slidean");
+        suggestion = "Forget past live at present with fixing your mistakes";
+        bg = "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bmF0dXJlfGVufDB8MHwwfHx8MA%3D%3D";
+        let sound = document.getElementById("slidefr");
         sound.currentTime = 0; // restart sound
         sound.play();
         sound.volume = 0.5;} // 50%
     } else if (mood === "Thinking🤔") {
         if (gender==="male"){
-        suggestion = "Think about new things";
-        bg = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e";
-        let sound = document.getElementById("slidean");
+        suggestion = "Think about new things not past 🤔";
+        bg = "https://plus.unsplash.com/premium_photo-1719943510748-4b4354fbcf56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJlfGVufDB8MHwwfHx8MA%3D%3D";
+        let sound = document.getElementById("slideth");
         sound.currentTime = 0; // restart sound
         sound.play();
         sound.volume = 0.5;} // 50%
         else{
         suggestion = "Think about new things";
-        bg = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e";
-        let sound = document.getElementById("slidean");
+        bg = "https://plus.unsplash.com/premium_photo-1719943510748-4b4354fbcf56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJlfGVufDB8MHwwfHx8MA%3D%3D";
+        let sound = document.getElementById("slideth");
         sound.currentTime = 0; // restart sound
         sound.play();
         sound.volume = 0.5;} // 50%
     } else if (mood === "Normal🙂") {
         if (gender==="male"){
-        suggestion = "Do what your brain says";
-        bg = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e";
-        let sound = document.getElementById("slidean");
+        suggestion = "Do what your brain says 😏";
+        bg = "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bmF0dXJlfGVufDB8MHwwfHx8MA%3D%3D";
+        let sound = document.getElementById("slideno");
         sound.currentTime = 0; // restart sound
         sound.play();
         sound.volume = 0.5;} // 50%
         else {
         suggestion = "Do what your brain says";
-        bg = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e";
-        let sound = document.getElementById("slidean");
+        bg = "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bmF0dXJlfGVufDB8MHwwfHx8MA%3D%3D";
+        let sound = document.getElementById("slideno");
         sound.currentTime = 0; // restart sound
         sound.play();
         sound.volume = 0.5;} // 50%
     } else {
         if (gender==="male"){
-        suggestion = "Take rest and recharge 😴";
+        suggestion = "Take a rest and recharge 😴";
         bg = "https://images.unsplash.com/photo-1519681393784-d120267933ba";
         let sound = document.getElementById("slideti");
         sound.currentTime = 0; // restart sound

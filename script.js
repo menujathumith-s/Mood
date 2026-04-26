@@ -15,16 +15,16 @@ function nextSlide()
     let email = document.getElementById("emailInput").value.trim();
     let dob = document.getElementById("birthdayInput").value;
 
-    /*if (!name || !email || !dob) {
+    if (!name || !email || !dob) {
         alert("Please fill all fields");
         return;
-    }*/
+    }
 
-    /*let emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailCheck.test(email)) {
         alert("Invalid email");
         return;
-    }*/
+    }
 
     let birth = new Date(dob);
     let today = new Date();
@@ -156,14 +156,14 @@ function showResult() {
         sound.volume = 0.5;} // 50%
     } else if (mood === "Thinking🤔") {
         if (gender==="male"){
-        suggestion = "Think about new things not past 🤔";
+        suggestion = "Think about new things not past 🙄";
         bg = "https://plus.unsplash.com/premium_photo-1719943510748-4b4354fbcf56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJlfGVufDB8MHwwfHx8MA%3D%3D";
         let sound = document.getElementById("slideth");
         sound.currentTime = 0; // restart sound
         sound.play();
         sound.volume = 0.5;} // 50%
         else{
-        suggestion = "Think about new things";
+        suggestion = "Think about new things not others";
         bg = "https://plus.unsplash.com/premium_photo-1719943510748-4b4354fbcf56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bmF0dXJlfGVufDB8MHwwfHx8MA%3D%3D";
         let sound = document.getElementById("slideth");
         sound.currentTime = 0; // restart sound
@@ -201,19 +201,19 @@ function showResult() {
         sound.volume = 0.5;} // 50%
     }
 
-    if (job==="Engineer"){
+    if (job==="Engineer⛏️"){
         if (gender==="male"){
         jobs = "👷";}
         else{jobs="👷‍♀️";}
-    }else if (job==="Doctor"){
+    }else if (job==="Doctor🩺"){
         if (gender==="male"){
         jobs = "🧑‍⚕️";}
         else{jobs="👩‍⚕️";}
-    }else if (job==="Businessman"){
+    }else if (job==="Businessman💸"){
         if (gender==="male"){
         jobs="🧑‍💼";}
         else{jobs="👩‍💼";}
-    }else if (job==="Programmer"){
+    }else if (job==="Programmer💻"){
         if (gender==="male"){
         jobs="🧑‍💻";}
         else{jobs="👩‍💻";}
@@ -238,7 +238,7 @@ function showResult() {
     let name = document.getElementById("nameInput").value.trim();
     let firstName = name.split(" ")[0];
     let Last = name.split(" ")[1];
-   
+
     if (Last === undefined){
       Last = "...";}
 
@@ -256,7 +256,7 @@ function showResult() {
 }
 
 /* SEND EMAIL FUNCTION */
-/*function sendEmail() {
+function sendEmail() {
 
     let name = document.getElementById("nameInput").value;
     let email = document.getElementById("emailInput").value;
@@ -275,11 +275,12 @@ function showResult() {
         name:name,
         
 })
-    .then(() => {
+}
+/*    .then(() => {
         alert("Email sent successfully ✅");
     })
     .catch(function(error) {
     alert("Error: " + error.text);
     console.log(error);
 });
-}*/
+} */

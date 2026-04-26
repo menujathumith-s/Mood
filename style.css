@@ -71,7 +71,19 @@ body {
 }
 
 .form-line div {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 0, 0, 0.199);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.moo {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+
+.moo div {
+    background: rgba(85, 255, 0, 0.432);
     padding: 15px;
     border-radius: 10px;
 }
@@ -122,14 +134,14 @@ body {
 
 /* Buttons styling */
 button {
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 12px 25px;
     border: none;
     border-radius: 12px;
     font-size: 16px;
     font-weight: bold;
     background: linear-gradient(45deg,#ff4b2b,#ff416c);
-    color: white;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -221,6 +233,7 @@ button:active {
 }
 
 
+/* MOBILE FIX */
 @media (max-width: 768px) {
 
   body {
@@ -228,44 +241,19 @@ button:active {
   }
 
   .main {
-    width: 100%;
+    padding: 15px;
   }
 
   .form-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: column; /* STACK */
   }
 
   .box {
-    flex: 1 1 100%; /* full width only on mobile */
-  }
-
-  button, input, select {
     width: 100%;
   }
 
-}
-.form-box {
-  width: 100%;
-  max-width: 400px; /* desktop limit */
-}
+  input, select, button {
+    width: 100%;
+  }
 
-* {
-  box-sizing: border-box;
-}
-
-.main {
-  width: 100%;
-  max-width: 100%;
-}
-
-.form-row {
-  display: flex;
-  flex-wrap: wrap; /* ✅ allows wrapping */
-  gap: 10px;
-}
-
-.box {
-  flex: 1 1 100%; /* mobile full width */
 }

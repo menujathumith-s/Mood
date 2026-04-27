@@ -33,7 +33,7 @@ function nextSlide()
         age--;
     }
 
-    if (age < 13 || age > 83) {
+    if (age < 13 && age > 83) {
         alert("Age must be 13 or above and 83 or below 83");
         return;
     }

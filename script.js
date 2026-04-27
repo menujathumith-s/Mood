@@ -38,7 +38,7 @@ function nextSlide()
         return;
     }
 
-    user = { name, email, age };
+    
     if (age<21){
         tyo="a teenager";
     }

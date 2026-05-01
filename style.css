@@ -14,7 +14,7 @@ body {
     height: 100vh;
     padding: 40px;
     box-sizing: border-box;
-    background: #222;
+    background: #000000;
     color: white;
     opacity: 0;
     pointer-events: none;

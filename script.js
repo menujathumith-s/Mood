@@ -29,12 +29,10 @@ function nextSlide()
     let birth = new Date(dob);
     let today = new Date();
     let age = today.getFullYear() - birth.getFullYear();
-    if (today.getMonth() < birth.getMonth() || (today.getMonth() === birth.getMonth() && today.getDate() < birth.getDate())) {
-        age--;
-    }
+    
 
-    if (age < 13 && age > 83) {
-        alert("Age must be 13 or above and 83 or below 83");
+    if (age < 13 || age > 75) {
+        alert("Age must be 13 or above and 83 or below 75");
         return;
     }
 

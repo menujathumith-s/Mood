@@ -32,7 +32,7 @@ function nextSlide()
     
 
     if (age < 13 || age > 75) {
-        alert("Age must be 13 or above and 13 or below 75");
+        alert("Age must be 13 or above and 75 or below ");
         return;
     }
 
@@ -54,7 +54,7 @@ function nextSlide()
 
 
     document.getElementById("welcomeText").innerText = "Hi " + firstName + " !";
-    document.getElementById("ageText").innerText = "ohh... you are " + tyo +" ( "+ age + " years old !)";
+    document.getElementById("ageText").innerText = "ohh... you are " + tyo +" ( "+ age + " years old ! )";
     document.getElementById("fillText").innerText= "If you want to upgrade, Please fill these blanks " + firstName + "....";
 
     document.getElementById("slide1").classList.remove("active");

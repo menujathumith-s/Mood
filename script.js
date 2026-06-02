@@ -215,6 +215,10 @@ function showResult() {
         if (gender==="male"){
         jobs="🧑‍💻";}
         else{jobs="👩‍💻";}
+    }else if (job==="Scientist🌄"){
+        if (gender==="male"){
+        jobs="🧑‍🔬";}
+        else{jobs="👩‍🔬";}
     }else {
         if (gender==="male"){
         jobs="";}

@@ -219,6 +219,10 @@ function showResult() {
         if (gender==="male"){
         jobs="🧑‍🔬";}
         else{jobs="👩‍🔬";}
+    }else if (job==="Musician🎶"){
+        if (gender==="male"){
+        jobs="🎛️🎸";}
+        else{jobs="🎙️🎻";}
     }else {
         if (gender==="male"){
         jobs="";}

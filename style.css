@@ -1,923 +1,271 @@
-```css
-/* ============================================================
-   RESET / GLOBAL
-============================================================ */
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html,
+/* Body and slides */
 body {
-    width: 100%;
-    height: 100%;
     margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #02030a;
-    color: #ffffff;
+    font-family: Arial;
     overflow: hidden;
 }
 
-
-/* ============================================================
-   MAIN SLIDE SYSTEM
-============================================================ */
-
+/* General slide style */
 .slide {
-    position: fixed;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     padding: 40px;
-
+    box-sizing: border-box;
+    background: #000000;
+    color: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    background: #02030a;
-    color: #ffffff;
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transform: scale(1.025);
-
-    transition:
-        opacity 0.75s ease,
-        transform 0.75s ease,
-        visibility 0.75s ease;
-
-    overflow: hidden;
 }
 
-/*
-    Soft cinematic lighting over every slide
-*/
-.slide::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-        radial-gradient(
-            circle at 15% 15%,
-            rgba(255, 0, 110, 0.12),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(0, 120, 255, 0.12),
-            transparent 30%
-        );
-
-    pointer-events: none;
-}
-
-/*
-    Very subtle grid
-*/
-.slide::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,0.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.025) 1px,
-            transparent 1px
-        );
-
-    background-size: 50px 50px;
-
-    mask-image: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.4),
-        transparent 80%
-    );
-
-    pointer-events: none;
-}
-
+/* Active slide */
 .slide.active {
     opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-
-    transform: scale(1);
+    pointer-events: all;
 }
-
-
-/* ============================================================
-   TITLE
-============================================================ */
-
 .title {
-    position: relative;
-    z-index: 5;
-
-    margin: 0 0 25px;
-
-    font-size: clamp(30px, 5vw, 56px);
-    font-weight: 700;
-
-    text-align: center;
-    letter-spacing: 3px;
-
-    color: #ffffff;
-
-    text-shadow:
-        0 0 5px rgba(255,255,255,0.9),
-        0 0 12px rgba(255,70,170,0.8),
-        0 0 25px rgba(150,70,255,0.7),
-        0 0 45px rgba(0,140,255,0.4);
-
-    animation: titlePulse 3.5s ease-in-out infinite alternate;
+  font-size: 40px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-shadow: 
+    0 0 5px rgba(255,255,255,0.6),
+    0 0 10px rgba(255,255,255,0.4),
+    0 0 20px rgba(255,182,193,0.5);
 }
 
-@keyframes titlePulse {
-    from {
-        filter: brightness(0.95);
-    }
-
-    to {
-        filter: brightness(1.15);
-    }
-}
-
-
-/* ============================================================
-   SLIDE 2
-============================================================ */
-
+/* Slide 2 background */
 #slide2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-
-    background:
-        radial-gradient(
-            circle at 10% 20%,
-            rgba(255, 0, 90, 0.28),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 25%,
-            rgba(90, 30, 255, 0.24),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(0, 190, 255, 0.16),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #03000a,
-            #10001f,
-            #00112a,
-            #020308
-        );
-
-    background-size: 160% 160%;
-
-    animation: gradientMove 18s ease infinite;
+    background:linear-gradient(-45deg,rgb(114, 0, 0), rgb(0, 0, 90), rgb(58, 0, 68), rgb(11, 110, 0));
+    background-size: 400% 400%;
+    animation: gradientMove 35s ease infinite;
 }
+
 
 @keyframes gradientMove {
     0% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 50%;
     }
-
     100% {
         background-position: 0% 50%;
     }
 }
 
-
-/* ============================================================
-   FLOATING LIGHT ON SLIDE 2
-============================================================ */
-
-#slide2::after {
-    background-image:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,0.055) 1px,
-            transparent 1px
-        );
-
-    background-size: 28px 28px;
-
-    opacity: 0.35;
-
-    animation: starsMove 30s linear infinite;
-}
-
-@keyframes starsMove {
-    from {
-        transform: translate(0, 0);
-    }
-
-    to {
-        transform: translate(-100px, -80px);
-    }
-}
-
-
-/* ============================================================
-   SLIDE 3
-============================================================ */
-
+/* Slide 3 */
 #slide3 {
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(100, 30, 255, 0.20),
-            transparent 35%
-        ),
-        linear-gradient(
-            145deg,
-            #020208,
-            #080012,
-            #00121e
-        );
-
     background-size: cover;
     background-position: center;
-
     text-align: center;
 }
 
-
-/* ============================================================
-   FORM LINE
-============================================================ */
-
+/* Form line for slide 2 */
 .form-line {
-    position: relative;
-    z-index: 5;
-
     display: flex;
-    align-items: stretch;
-    justify-content: center;
-
-    gap: 22px;
-
-    width: min(92%, 1100px);
-
-    margin-top: 25px;
+    justify-content: space-around;
+    width: 90%;
+    margin-top: 30px;
 }
 
 .form-line div {
-    position: relative;
-
-    flex: 1 1 0;
-
-    min-width: 180px;
-
-    padding: 18px;
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.11),
-            rgba(255,255,255,0.035)
-        );
-
-    border: 1px solid rgba(255,255,255,0.14);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-
-    box-shadow:
-        0 12px 35px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.15);
-
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
+    background: rgba(255, 0, 0, 0.199);
+    padding: 15px;
+    border-radius: 10px;
 }
-
-.form-line div::before {
-    content: "";
-
-    position: absolute;
-    top: 0;
-    left: 15%;
-    right: 15%;
-
-    height: 1px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.6),
-        transparent
-    );
-
-    opacity: 0.5;
-}
-
-.form-line div:hover {
-    transform: translateY(-7px);
-
-    border-color: rgba(255,90,190,0.45);
-
-    box-shadow:
-        0 18px 40px rgba(0,0,0,0.45),
-        0 0 28px rgba(255,60,170,0.12),
-        inset 0 1px 0 rgba(255,255,255,0.2);
-}
-
-
-/* ============================================================
-   MOO
-============================================================ */
 
 .moo {
-    position: relative;
-    z-index: 5;
-
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 18px;
-
-    margin-top: 18px;
+    justify-content: space-around;
+    margin-top: 5px;
 }
 
 .moo div {
-    padding: 14px 20px;
-
-    border-radius: 15px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0,255,150,0.10),
-            rgba(0,120,255,0.07)
-        );
-
-    border: 1px solid rgba(0,255,190,0.22);
-
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.12);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    background: rgba(85, 255, 0, 0.432);
+    padding: 15px;
+    border-radius: 10px;
 }
 
-.moo div:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,0.35),
-        0 0 20px rgba(0,255,170,0.13);
-}
-
-
-/* ============================================================
-   INPUTS
-============================================================ */
-
-input,
-select,
-textarea {
-    font-family: inherit;
-
-    border: 1px solid rgba(255,255,255,0.15);
-    outline: none;
-
-    border-radius: 12px;
-
-    background:
-        rgba(255,255,255,0.06);
-
-    color: #ffffff;
-
-    transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: rgba(255,255,255,0.48);
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    background: rgba(255,255,255,0.09);
-
-    border-color: rgba(255,80,180,0.75);
-
-    box-shadow:
-        0 0 0 3px rgba(255,60,160,0.08),
-        0 0 20px rgba(255,60,160,0.14);
-}
-
-
-/* ============================================================
-   BUTTON
-============================================================ */
-
-button {
-    position: relative;
-    z-index: 5;
-
-    margin-top: 12px;
-
-    padding: 13px 28px;
-
-    border: 1px solid rgba(255,255,255,0.16);
-    border-radius: 13px;
-
-    font-size: 16px;
-    font-weight: 700;
-
-    color: #ffffff;
-
-    background:
-        linear-gradient(
-            120deg,
-            #ff236d,
-            #ff4d36,
-            #963cff,
-            #ff236d
-        );
-
-    background-size: 300% 300%;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 7px 22px rgba(255,40,100,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.25);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-
-    animation: buttonGradient 6s ease infinite;
-}
-
-@keyframes buttonGradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-button:hover {
-    transform: translateY(-4px) scale(1.03);
-
-    box-shadow:
-        0 12px 30px rgba(255,40,100,0.38),
-        0 0 25px rgba(130,50,255,0.20);
-}
-
-button:active {
-    transform: scale(0.97);
-}
-
-
-/* ============================================================
-   MARQUEE
-============================================================ */
-
+/* Marquee */
 .marquee-container {
     position: fixed;
-
     top: 0;
-    left: 0;
-
     width: 100%;
-
-    z-index: 999;
-
     overflow: hidden;
-
+    background: rgba(0, 0, 0, 0.6);
     padding: 10px 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(2,2,8,0.92),
-            rgba(15,5,30,0.78),
-            rgba(2,2,8,0.92)
-        );
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-
-    box-shadow:
-        0 5px 25px rgba(0,0,0,0.35);
 }
-
 
 /* Moving track */
-
 .track {
     display: flex;
-
-    width: max-content;
-
+    width: fit-content;
     padding-left: 100%;
-
-    animation: marquee 35s linear infinite;
-
-    will-change: transform;
+    animation: marquee 40s linear infinite;
 }
 
-
-/* Marquee text */
-
+/* Text style + glow */
 .content {
-    flex-shrink: 0;
-
     white-space: nowrap;
-
-    padding-right: 80px;
-
+    padding-right: 60px;
     font-size: 17px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
-
+    font-weight: bold;
     color: #ffffff;
 
-    text-shadow:
-        0 0 5px rgba(255,255,255,0.9),
-        0 0 12px rgba(255,70,180,0.8),
-        0 0 24px rgba(130,60,255,0.6);
+    text-shadow: 
+        0 0 5px rgb(214, 214, 214),
+
+  
 }
 
-
-/* Infinite movement */
-
+/* Smooth infinite scroll */
 @keyframes marquee {
-    from {
+    0% {
         transform: translateX(0);
     }
-
-    to {
+    100% {
         transform: translateX(-100%);
     }
 }
 
 
-/* Pause on hover */
 
-.marquee-container:hover .track {
-    animation-play-state: paused;
+/* Buttons styling */
+button {
+    margin-top: 10px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background: linear-gradient(45deg,#ff4b2b,#ff416c);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-
-/* ============================================================
-   VIDEO
-============================================================ */
-
-.bottom-video {
-    position: relative;
-    z-index: 5;
-
-    width: 100px;
-    height: 100px;
-
-    margin-top: 12px;
-
-    overflow: hidden;
-
-    border-radius: 50%;
-
-    border: 2px solid rgba(255,255,255,0.25);
-
-    box-shadow:
-        0 0 15px rgba(255,40,160,0.2),
-        0 0 35px rgba(60,100,255,0.16);
-
-    animation: videoFloat 4s ease-in-out infinite;
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
-.bottom-video::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    border-radius: 50%;
-
-    box-shadow:
-        inset 0 0 20px rgba(255,255,255,0.12);
-
-    pointer-events: none;
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
-.bottom-video video {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    transform: scale(1.18);
+/* container */
+/*.job{
+    width: 110px;
 }
 
-@keyframes videoFloat {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px);
-    }
-}
-
-
-/* ============================================================
-   CONTAINER
-============================================================ */
-
-.container {
-    position: relative;
-    z-index: 5;
-
-    width: min(100%, 1200px);
-
-    display: flex;
-    flex-wrap: wrap;
-
-    margin: 0 auto;
-
-    gap: 20px;
-
-    padding: 20px;
-
-    border-radius: 22px;
-
-    background:
-        rgba(255,255,255,0.035);
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 18px 45px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.08);
-}
-
-
-/* ============================================================
-   JOB SELECT
-============================================================ */
-
-.job {
-    position: relative;
-
-    width: 180px;
-}
-
-.job label {
+/* label 
+.job label{
     display: block;
-
     margin-bottom: 8px;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    color: rgba(255,255,255,0.85);
+    font-size: 16px;
 }
 
-.job select {
+/* select style 
+.job select{
     width: 100%;
-
-    padding: 12px 38px 12px 13px;
-
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    background: #1e293b;
+    color: white;
+    outline: none;
+    transition: 0.3s;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-
-    background: rgba(255,255,255,0.07);
-
-    color: #ffffff;
-
-    border: 1px solid rgba(255,255,255,0.14);
-
-    border-radius: 11px;
-
-    outline: none;
-
-    cursor: pointer;
 }
 
-.job select option {
-    background: #0c0d18;
-    color: #ffffff;
+
+/* hover 
+.job select:hover{
+    background: #334155;
 }
 
-.job::after {
-    content: "⌄";
-
+/* focus 
+.job select:focus{
+    box-shadow: 0 0 0 2px #2563eb;
+}
+.job{
+    position: relative;
+}
+/*
+.job::after{
+    content: "▼";
     position: absolute;
-
-    right: 13px;
-    bottom: 9px;
-
-    font-size: 18px;
-
-    color: rgba(255,255,255,0.65);
-
+    right: 21px;
+    top: 47px;
+    font-size: 12px;
+    color: #94a3b8;
     pointer-events: none;
 }
+*/
+.bottom-video{
+    
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-top: 11px;
+}
+.bottom-video video{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.2);
 
+}
 
-/* ============================================================
-   MAIN
-============================================================ */
-
-.main {
-    width: 100%;
-    max-width: 1200px;
-
-    padding: 15px;
+/*default (desktop) */
+.container {
+    width:1200px;
+    display:flex;
+    flex-wrap: wrap;
 }
 
 
-/* ============================================================
-   MOBILE
-============================================================ */
-
+/* MOBILE FIX */
 @media (max-width: 768px) {
 
-    body {
-        overflow: hidden;
-    }
+  body {
+    overflow-x: hidden;
+  }
 
-    .slide {
-        padding: 20px 15px;
-    }
+  .main {
+    padding: 15px;
+  }
 
-    .title {
-        font-size: 32px;
-        letter-spacing: 2px;
+  .form-row {
+    flex-direction: column; /* STACK */
+  }
 
-        margin-bottom: 18px;
-    }
+  .box {
+    width: 100%;
+  }
 
-    .form-line {
-        width: 94%;
+  input, select, button {
+    width: 100%;
+  }
 
-        flex-direction: column;
-
-        gap: 12px;
-
-        margin-top: 15px;
-    }
-
-    .form-line div {
-        width: 100%;
-        min-width: 0;
-
-        padding: 15px;
-    }
-
-    .moo {
-        width: 94%;
-
-        flex-direction: column;
-
-        gap: 10px;
-    }
-
-    .moo div {
-        width: 100%;
-    }
-
-    .container {
-        width: 96%;
-
-        flex-direction: column;
-
-        padding: 15px;
-    }
-
-    .main {
-        padding: 10px;
-    }
-
-    .job {
-        width: 100%;
-    }
-
-    input,
-    select,
-    textarea {
-        max-width: 100%;
-    }
-
-    button {
-        max-width: 100%;
-    }
-
-    .bottom-video {
-        width: 82px;
-        height: 82px;
-    }
-
-    .content {
-        font-size: 14px;
-        padding-right: 60px;
-    }
 }
-
-
-/* ============================================================
-   SMALL PHONE
-============================================================ */
-
-@media (max-width: 480px) {
-
-    .slide {
-        padding: 15px 10px;
-    }
-
-    .title {
-        font-size: 26px;
-        letter-spacing: 1px;
-    }
-
-    .form-line div,
-    .moo div {
-        padding: 13px;
-    }
-
-    .container {
-        padding: 12px;
-        gap: 12px;
-    }
-
-    .bottom-video {
-        width: 72px;
-        height: 72px;
-    }
-
-    .content {
-        font-size: 13px;
-    }
-}
-
-
-/* ============================================================
-   REDUCED MOTION
-============================================================ */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-```

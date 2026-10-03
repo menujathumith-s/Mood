@@ -1616,4 +1616,140 @@ button:active {
         transition-duration: 0.01ms !important;
     }
 }
+
+```css
+/* =========================================================
+   FINAL SLIDE - BACKGROUND IMAGE FIX
+========================================================= */
+
+#slide3 {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    /* Keep the original picture proportion */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    /* Prevent the image from tiling */
+    background-attachment: scroll;
+
+    /* Don't let generic backgrounds replace the picture */
+    background-color: #000;
+
+    text-align: center;
+
+    overflow-x: hidden;
+}
+
+
+/* Remove the decorative glow layers from the picture */
+
+#slide3::before,
+#slide3::after {
+    display: none;
+    content: none;
+}
+
+
+/* Keep final-slide content above the picture */
+
+#slide3 > * {
+    position: relative;
+    z-index: 5;
+}
+
+
+/* =========================================================
+   FINAL SLIDE - DESKTOP
+========================================================= */
+
+@media (min-width: 769px) {
+
+    #slide3 {
+        min-height: 100vh;
+
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        overflow: hidden;
+    }
+}
+
+
+/* =========================================================
+   FINAL SLIDE - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    #slide3 {
+        position: fixed;
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        width: auto;
+        height: auto;
+
+        min-width: 0;
+        min-height: 0;
+
+        padding:
+            70px
+            16px
+            60px;
+
+        /* IMPORTANT:
+           Keep the image intact while allowing
+           the final slide content to scroll. */
+
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    /* Absolutely no artificial glow over the photo */
+
+    #slide3::before,
+    #slide3::after {
+        display: none !important;
+        opacity: 0 !important;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    #slide3 {
+        padding:
+            68px
+            12px
+            55px;
+
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+}
+```
+
 ```

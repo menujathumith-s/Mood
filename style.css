@@ -1139,33 +1139,95 @@ button:active {
    MOBILE
 ========================================================= */
 
+/* =========================================================
+   MOBILE FIX - IMPORTANT
+========================================================= */
+
 @media (max-width: 768px) {
 
+    html,
     body {
-        overflow: hidden;
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
     }
 
+    body {
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
 
+    /* Every slide can scroll vertically on mobile */
     .slide {
-        padding: 65px 16px 25px;
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        min-width: 100%;
+
+        height: 100dvh;
+        min-height: 100dvh;
+
+        padding: 70px 16px 30px;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        justify-content: flex-start;
+
+        -webkit-overflow-scrolling: touch;
+
+        overscroll-behavior-x: none;
+        overscroll-behavior-y: auto;
     }
 
+    /* Keep active slide above others */
+    .slide.active {
+        z-index: 10;
+    }
+
+
+    /* =====================================================
+       TITLE
+    ===================================================== */
 
     .title {
-        font-size: 32px;
+        width: 100%;
+
+        margin-top: 15px;
+        margin-bottom: 25px;
+
+        font-size: clamp(27px, 8vw, 38px);
+
+        line-height: 1.15;
 
         letter-spacing: 1px;
+
+        padding: 0 5px;
     }
 
 
+    /* =====================================================
+       FORM LINE
+    ===================================================== */
+
     .form-line {
-        width: 96%;
+        width: 100%;
+
+        margin-top: 10px;
+
+        display: flex;
 
         flex-direction: column;
 
-        gap: 14px;
+        align-items: stretch;
 
-        margin-top: 20px;
+        justify-content: flex-start;
+
+        gap: 14px;
     }
 
 
@@ -1173,34 +1235,108 @@ button:active {
         width: 100%;
 
         min-width: 0;
+
+        max-width: 100%;
+
+        padding: 16px;
+
+        flex-shrink: 0;
     }
 
+
+    /* =====================================================
+       FORM ROW
+    ===================================================== */
 
     .form-row {
+        width: 100%;
+
+        display: flex;
+
         flex-direction: column;
 
-        width: 100%;
+        align-items: stretch;
+
+        gap: 14px;
     }
 
+
+    /* =====================================================
+       CONTAINER
+    ===================================================== */
 
     .container {
         width: 100%;
 
         max-width: 100%;
 
+        display: flex;
+
         flex-direction: column;
+
+        align-items: stretch;
+
+        justify-content: flex-start;
+
+        gap: 15px;
     }
 
 
-    .box {
+    /* =====================================================
+       INPUTS
+    ===================================================== */
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+
+        max-width: 100%;
+
+        font-size: 16px;
+        /* prevents iPhone auto-zoom when focusing */
+
+        padding: 13px 14px;
+    }
+
+
+    textarea {
+        min-height: 120px;
+    }
+
+
+    /* =====================================================
+       JOB
+    ===================================================== */
+
+    .job {
         width: 100%;
     }
 
+
+    .job select {
+        width: 100%;
+
+        font-size: 16px;
+    }
+
+
+    /* =====================================================
+       MOO
+    ===================================================== */
 
     .moo {
         width: 100%;
 
+        display: flex;
+
         flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 12px;
+
+        margin-top: 15px;
     }
 
 
@@ -1208,119 +1344,126 @@ button:active {
         width: 100%;
 
         text-align: center;
+
+        padding: 15px;
     }
 
 
-    .job {
-        width: 100%;
-    }
+    /* =====================================================
+       BUTTON
+    ===================================================== */
 
-
-    input,
-    select,
-    textarea,
     button {
         width: 100%;
-    }
 
-
-    button {
         min-height: 48px;
+
+        margin-top: 12px;
+
+        font-size: 16px;
+
+        flex-shrink: 0;
     }
 
+
+    /* =====================================================
+       VIDEO
+    ===================================================== */
 
     .bottom-video {
         width: 82px;
         height: 82px;
+
+        flex-shrink: 0;
+
+        margin-top: 20px;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* =====================================================
+       MARQUEE
+    ===================================================== */
+
+    .marquee-container {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+
+        padding: 8px 0;
+
+        z-index: 1000;
     }
 
 
     .content {
-        font-size: 13px;
+        font-size: 12px;
 
         padding-right: 60px;
+
+        letter-spacing: 0.7px;
+    }
+
+
+    /* =====================================================
+       MOBILE BACKGROUND GLOW
+    ===================================================== */
+
+    .slide::before {
+        width: 300px;
+        height: 300px;
+
+        top: -120px;
+        left: -120px;
+
+        filter: blur(40px);
+    }
+
+
+    .slide::after {
+        width: 300px;
+        height: 300px;
+
+        right: -130px;
+        bottom: -120px;
+
+        filter: blur(40px);
     }
 }
 
 
 /* =========================================================
-   SMALL PHONES
+   VERY SMALL PHONES
 ========================================================= */
 
 @media (max-width: 480px) {
 
     .slide {
         padding:
-            60px
+            65px
             12px
-            18px;
+            25px;
     }
 
 
     .title {
         font-size: 27px;
+
+        margin-bottom: 22px;
     }
 
 
     .form-line > div {
-        padding: 15px;
+        padding: 14px;
     }
 
 
-    .content {
-        font-size: 12px;
+    .bottom-video {
+        width: 72px;
+        height: 72px;
     }
 }
-
-
-/* =========================================================
-   SCROLLBAR
-========================================================= */
-
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.02);
-}
-
-::-webkit-scrollbar-thumb {
-    background:
-        linear-gradient(
-            180deg,
-            var(--pink),
-            var(--purple)
-        );
-
-    border-radius: 50px;
-}
-
-
-/* =========================================================
-   TEXT SELECTION
-========================================================= */
-
-::selection {
-    color: white;
-
-    background:
-        rgba(140, 75, 255, 0.55);
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-```

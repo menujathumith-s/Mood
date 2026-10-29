@@ -230,15 +230,15 @@ function showResult() {
     }
 
     if (type === "student") {
-        suggestion += "\nAlso focus on your studies 📚";
+        suggestion += "\n\tAlso focus on your studies 📚";
     } else {
-        suggestion += "\nFocus on your work " + jobs ;
+        suggestion += "\n\tFocus on your work " + jobs ;
     }
 
     if (gender === "male") {
-        suggestion += "\n \ngood luck bro 👊 !";
+        suggestion += "\n \n\t\tgood luck bro 👊 !";
     } else {
-        suggestion += "\n\ngood luck sis 🤙 !";
+        suggestion += "\n\n\t\tgood luck sis 🤙 !";
     }
 
     let name = document.getElementById("nameInput").value.trim();

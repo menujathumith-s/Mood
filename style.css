@@ -1754,6 +1754,10 @@ button:active {
         background-repeat: no-repeat;
     }
 }
+
+#bottomText {
+   text-align: center;
+}
 ```
 
 ```

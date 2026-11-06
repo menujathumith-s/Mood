@@ -236,9 +236,9 @@ function showResult() {
     }
 
     if (gender === "male") {
-        suggestion += "\n \n\t\tgood luck bro 👊 !";
+        suggestion += "\n \n     good luck bro 👊 !";
     } else {
-        suggestion += "\n\n\t\tgood luck sis 🤙 !";
+        suggestion += "\n\n      good luck sis 🤙 !";
     }
 
     let name = document.getElementById("nameInput").value.trim();

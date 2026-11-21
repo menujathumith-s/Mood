@@ -1760,10 +1760,11 @@ button:active {
 #slide3 #bottomText {
     position: fixed;
     bottom: 20px;
-    left: 0;
+    left: 50%;
     width: 100%;
 
     text-align: center;
+    transform: translateX(-50%);
 
     z-index: 1001;
 }

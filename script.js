@@ -72,6 +72,47 @@ async function saveToDatabase() {
 
 }
 
+async function saveToDatabase() {
+
+    const userData = {
+        name: document.getElementById("nameInput").value,
+        email: document.getElementById("emailInput").value,
+        age: calculateAgeFromDate(
+            document.getElementById("birthdayInput").value
+        ),
+        gender: document.querySelector(
+            'input[name="gender"]:checked'
+        )?.value,
+        user_type: document.querySelector(
+            'input[name="type"]:checked'
+        )?.value,
+        occupation: document.getElementById("job").value,
+        mood: document.getElementById("mood").value
+    };
+
+    try {
+
+        const { error } = await moodDB
+            .from("mood_submissions")
+            .insert([userData]);
+
+        if (error) throw error;
+
+        console.log("Database saved successfully!");
+
+    } catch (error) {
+
+        console.error("Database error:", error);
+
+        alert("Database saving failed: " + error.message);
+
+    }
+
+    // GO TO NEXT SLIDE
+    showResult();
+
+}
+
 let user = {};
 
 function nextSlide() 

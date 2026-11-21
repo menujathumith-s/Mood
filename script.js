@@ -1,3 +1,77 @@
+// Database connection
+
+const SUPABASE_URL = "YOUR_PROJECT_URL";
+const SUPABASE_KEY = "YOUR_PUBLISHABLE_KEY";
+
+const moodDB = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+async function saveToDatabase() {
+
+    const gender = document.querySelector(
+        'input[name="gender"]:checked'
+    );
+
+    const type = document.querySelector(
+        'input[name="type"]:checked'
+    );
+
+    if (!gender || !type) {
+        alert("Please complete all fields.");
+        return;
+    }
+
+    const birthday = document.getElementById("birthdayInput").value;
+
+    const age = calculateAgeFromDate(birthday);
+
+    const userData = {
+
+        name: document.getElementById("nameInput").value,
+
+        email: document.getElementById("emailInput").value,
+
+        age: age,
+
+        gender: gender.value,
+
+        user_type: type.value,
+
+        occupation: document.getElementById("job").value,
+
+        mood: document.getElementById("mood").value
+
+    };
+
+    try {
+
+        const { error } = await moodDB
+            .from("mood_submissions")
+            .insert([userData]);
+
+        if (error) {
+            throw error;
+        }
+
+        console.log("Data saved successfully!");
+
+        // Run your existing result function
+        showResult();
+
+    }
+
+    catch (error) {
+
+        console.error("Database error:", error);
+
+        alert("Database saving failed!");
+
+    }
+
+}
+
 let user = {};
 
 function nextSlide() 

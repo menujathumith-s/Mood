@@ -1757,8 +1757,15 @@ button:active {
     }
 }
 
-#bottomText {
-   text-align: center;
+#slide3 #bottomText {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+
+    text-align: center;
+
+    z-index: 1001;
 }
 ```
 

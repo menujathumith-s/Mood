@@ -1764,7 +1764,7 @@ button:active {
     width: 100%;
 
     text-align: center;
-    transform: translateX(-50%);
+    
 
     z-index: 1001;
 }

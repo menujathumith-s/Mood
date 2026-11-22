@@ -35,10 +35,6 @@ async function saveToDatabase() {
 
     try {
 
-        if (!moodDB) {
-            throw new Error("Supabase connection is not initialized.");
-        }
-
         const gender = document.querySelector(
             'input[name="gender"]:checked'
         )?.value;
@@ -47,17 +43,11 @@ async function saveToDatabase() {
             'input[name="type"]:checked'
         )?.value;
 
-        if (!gender || !type) {
-            alert("Please select Gender and Type.");
-            return;
-        }
+        if (!gender || !type) return;
 
         const birthday = document.getElementById("birthdayInput").value;
 
-        if (!birthday) {
-            alert("Please enter your birthday.");
-            return;
-        }
+        if (!birthday) return;
 
         const userData = {
             name: document.getElementById("nameInput").value.trim(),
@@ -71,15 +61,21 @@ async function saveToDatabase() {
             mood: document.getElementById("mood").value
         };
 
-        console.log("Submitting:", userData);
-
         const { error } = await moodDB
             .from("mood_submissions")
             .insert([userData]);
-        
-    // GO TO NEXT SLIDE
-    showResult();
 
+        if (error) throw error;
+
+        // Automatically show final slide
+        showResult();
+
+    } catch (error) {
+
+        //console.error("Database error:", error);
+        showResult();
+
+    }
 }
 
 let user = {};

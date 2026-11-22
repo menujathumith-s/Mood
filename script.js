@@ -1,6 +1,6 @@
 // Database connection
 
-const SUPABASE_URL = "https://fyfhuyrphfkxsqqhpdum.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://fyfhuyrphfkxsqqhpdum.supabase.co";
 const SUPABASE_KEY = "sb_publishable_d2Hnkk01UXvYxIi3Xw9IUA_vFZ4DKC9";
 
 const moodDB = window.supabase.createClient(

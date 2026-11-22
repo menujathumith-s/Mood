@@ -8,68 +8,24 @@ const moodDB = window.supabase.createClient(
     SUPABASE_KEY
 );
 
-async function saveToDatabase() {
+function calculateAgeFromDate(dateString) {
 
-    const gender = document.querySelector(
-        'input[name="gender"]:checked'
-    );
+    const birth = new Date(dateString + "T00:00:00");
+    const today = new Date();
 
-    const type = document.querySelector(
-        'input[name="type"]:checked'
-    );
+    let age = today.getFullYear() - birth.getFullYear();
 
-    if (!gender || !type) {
-        alert("Please complete all fields.");
-        return;
+    if (
+        today.getMonth() < birth.getMonth() ||
+        (
+            today.getMonth() === birth.getMonth() &&
+            today.getDate() < birth.getDate()
+        )
+    ) {
+        age--;
     }
 
-    const birthday = document.getElementById("birthdayInput").value;
-
-    const age = calculateAgeFromDate(birthday);
-
-    const userData = {
-
-        name: document.getElementById("nameInput").value,
-
-        email: document.getElementById("emailInput").value,
-
-        age: age,
-
-        gender: gender.value,
-
-        user_type: type.value,
-
-        occupation: document.getElementById("job").value,
-
-        mood: document.getElementById("mood").value
-
-    };
-
-    try {
-
-        const { error } = await moodDB
-            .from("mood_submissions")
-            .insert([userData]);
-
-        if (error) {
-            throw error;
-        }
-
-        console.log("Data saved successfully!");
-
-        // Run your existing result function
-        showResult();
-
-    }
-
-    catch (error) {
-
-        console.error("Database error:", error);
-
-        alert("Database saving failed!");
-
-    }
-
+    return age;
 }
 
 async function saveToDatabase() {

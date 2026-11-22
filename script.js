@@ -28,42 +28,76 @@ function calculateAgeFromDate(dateString) {
     return age;
 }
 
+
 async function saveToDatabase() {
 
-    const userData = {
-        name: document.getElementById("nameInput").value,
-        email: document.getElementById("emailInput").value,
-        age: calculateAgeFromDate(
-            document.getElementById("birthdayInput").value
-        ),
-        gender: document.querySelector(
-            'input[name="gender"]:checked'
-        )?.value,
-        user_type: document.querySelector(
-            'input[name="type"]:checked'
-        )?.value,
-        occupation: document.getElementById("job").value,
-        mood: document.getElementById("mood").value
-    };
+    console.log("Submit button clicked!");
 
     try {
+
+        if (!moodDB) {
+            throw new Error("Supabase connection is not initialized.");
+        }
+
+        const gender = document.querySelector(
+            'input[name="gender"]:checked'
+        )?.value;
+
+        const type = document.querySelector(
+            'input[name="type"]:checked'
+        )?.value;
+
+        if (!gender || !type) {
+            alert("Please select Gender and Type.");
+            return;
+        }
+
+        const birthday = document.getElementById("birthdayInput").value;
+
+        if (!birthday) {
+            alert("Please enter your birthday.");
+            return;
+        }
+
+        const userData = {
+            name: document.getElementById("nameInput").value.trim(),
+            email: document.getElementById("emailInput").value.trim(),
+            age: calculateAgeFromDate(birthday),
+            gender: gender,
+            user_type: type,
+            occupation: type === "student"
+                ? "Student"
+                : document.getElementById("job").value,
+            mood: document.getElementById("mood").value
+        };
+
+        console.log("Submitting:", userData);
 
         const { error } = await moodDB
             .from("mood_submissions")
             .insert([userData]);
 
-        if (error) throw error;
+        if (error) {
+            throw error;
+        }
 
-        console.log("Database saved successfully!");
+        alert("SUCCESS! Your data has been saved to the database.");
+
+        console.log("Database insertion successful!");
+
+        showResult();
 
     } catch (error) {
 
-        console.error("Database error:", error);
+        console.error("DATABASE ERROR:", error);
 
-        alert("Database saving failed: " + error.message);
+        alert(
+            "DATABASE ERROR:\n" +
+            error.message +
+            "\nCode: " + (error.code || "Unknown")
+        );
 
     }
-
     // GO TO NEXT SLIDE
     showResult();
 

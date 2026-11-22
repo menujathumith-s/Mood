@@ -81,8 +81,6 @@ async function saveToDatabase() {
             throw error;
         }
 
-        alert("SUCCESS! Your data has been saved to the database.");
-
         console.log("Database insertion successful!");
 
         showResult();
@@ -90,12 +88,6 @@ async function saveToDatabase() {
     } catch (error) {
 
         console.error("DATABASE ERROR:", error);
-
-        alert(
-            "DATABASE ERROR:\n" +
-            error.message +
-            "\nCode: " + (error.code || "Unknown")
-        );
 
     }
     // GO TO NEXT SLIDE

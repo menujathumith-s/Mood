@@ -76,20 +76,7 @@ async function saveToDatabase() {
         const { error } = await moodDB
             .from("mood_submissions")
             .insert([userData]);
-
-        if (error) {
-            throw error;
-        }
-
-        console.log("Database insertion successful!");
-
-        showResult();
-
-    } catch (error) {
-
-        console.error("DATABASE ERROR:", error);
-
-    }
+        
     // GO TO NEXT SLIDE
     showResult();
 

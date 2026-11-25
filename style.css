@@ -529,20 +529,8 @@ body {
         0 12px 32px rgba(30, 220, 110, 0.12);
 }
 
-/*input[type="radio"] {
-    margin-right: 35px;
-}*/
 input[type="radio"] {
-    width: 10px;
-    height: 10px;
-
-    padding: 0;
-    margin-right: 12px;
-
-    accent-color: #3d6cff;
-
-    cursor: pointer;
-    transform: scale(1.2);
+    margin-right: 15px;
 }
 
 /* =========================================================
